@@ -5,11 +5,10 @@ import SearchBar from "../components/SearchBar";
 import Module from "../components/Module";
 
 export default function Home() {
-  // Aquí guardamos lo que el usuario escribe
+  // Gardamos lo que el usuario escribe
   const [searchTerm, setSearchTerm] = useState("");
 
-  // TUS DATOS (Los he contraído aquí en el texto para no abrumar, pero están intactos)
-  const modulo_a1 = [{ title: "Jornada 1: La Biblia es palabra de Dios y la Trinidad" }, { title: "Jornada 2: La deidad de Jesús y la misión de Jesús" }, { title: "Jornada 3: Salvación por la gracia mediante la fe, el Cielo y el Infierno" }, { title: "Jornada 4: La persona y obra del Espíritu Santo" }, { title: "Jornada 5: La sanidad divina" }, { title: "Jornada 6: Las ordenanzas de la Iglesia" }];
+  const modulo_a1 = [{ title: "Jornada 1: La Biblia es palabra de Dios y la Trinidad", youtubeId: "RtzqdZMBxVE", startTime: 60}, { title: "Jornada 2: La deidad de Jesús y la misión de Jesús" }, { title: "Jornada 3: Salvación por la gracia mediante la fe, el Cielo y el Infierno" }, { title: "Jornada 4: La persona y obra del Espíritu Santo" }, { title: "Jornada 5: La sanidad divina" }, { title: "Jornada 6: Las ordenanzas de la Iglesia" }];
   const modulo_a2 = [{ title: "Jornada 1: El Espíritu Santo" }, { title: "Jornada 2: Los dones del Espíritu Santo" }, { title: "Jornada 3: Los dones vocales del Espíritu Santo" }, { title: "Jornada 4: Los dones de revelación" }, { title: "Jornada 5: Los dones de poder del Espíritu Santo" }, { title: "Jornada 6: Los dones de sanidad" }, { title: "Jornada 7: La gran comisión y la sanidad" }, { title: "Jornada 8: El poder de Dios para dar sanidad" }, { title: "Jornada 9: Hablar palabras de sanidad" }, { title: "Jornada 10: Impartición por la imposición de manos" }];
   const modulo_a3 = [{ title: "Jornada 1: Introducción al Nuevo Testamento" }, { title: "Jornada 2: Mateo, Marcos, Lucas tres retratos de Jesucristo" }, { title: "Jornada 3: Juan: El cuato retrato de Jesucristo" }, { title: "Jornada 4: Hechos: La expansión del Evangelio" }, { title: "Jornada 5: Romanos: Carta de Pablo acerca del Evangelio de la gracia" }, { title: "Jornada 6: Primera y Segunda de Corintios, Gálatas: Cartas de Pablo de la vida del Evangelio de la gracia" }, { title: "Jornada 7: Ef., Filipenses, Colosenses y Filemón: Cartas de Pablo desde la prisión" }, { title: "Jornada 8: Primera y Segunda de Timoteo y Tito: Las cartas de Pablo a los líderes" }, { title: "Jornada 9: De Hebreos a Judas: Las cartas generales de los creyentes" }, { title: "Jornada 10: El Apocalipsis: La consumación de todas las cosas" }];
   const modulo_a4 = [{ title: "Jornada 1: La prioridad, el propósito, y representación de la adoración" }, { title: "Jornada 2: El papel de la música en el reino de Dios" }, { title: "Jornada 3: La importancia del cántico nuevo" }, { title: "Jornada 4: Nuestra responsabilidad como adoradores" }, { title: "Jornada 5: Cómo hacerse adorador" }];
@@ -41,7 +40,7 @@ export default function Home() {
   const modulo_e5 = [{ title: "Jornada 1: Usando títeres en el ministerio de niños" }, { title: "Jornada 2: Cómo ser una persona que resuelve problemas" }, { title: "Jornada 3: Organizando el ministerio de niños para el crecimiento" }, { title: "Jornada 4: Cómo obtener la ayuda de otros" }];
   const modulo_e6 = [{ title: "Jornada 1: Establecer una visión para el ministerio de jóvenes" }, { title: "Jornada 2: Guiando a líderes a ejecución máxima" }, { title: "Jornada 3: Comunicándose efectivamente con la juventud" }, { title: "Jornada 4: Planeando efectivamente un ministerio de jóvenes" }];
 
-  // METEMOS TODOS LOS MÓDULOS EN UNA LISTA MAESTRA (Arreglo)
+  // METEMOS TODOS LOS MÓDULOS EN UNA LISTA MAESTRA
   const allModulesData = [
     { number: "01", title: "LOS FUNDAMENTOS DE LA FE", lessons: modulo_a1 },
     { number: "02", title: "LA VIDA SOBRENATURAL Y LA SANIDAD", lessons: modulo_a2 },

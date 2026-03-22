@@ -1,12 +1,13 @@
 'use client';
 
-import { useState} from 'react';
+import { useState } from 'react';
 import { ChevronDown, ChevronUp, PlayCircle } from 'lucide-react';
 import VideoModal from './VideoModal';
 
 interface Lesson {
   title: string;
-  youtubeId?: string; // Agregamos esto para el futuro
+  youtubeId?: string;
+  startTime?: number;
 }
 
 interface ModuleProps {
@@ -17,15 +18,10 @@ interface ModuleProps {
 }
 
 export default function Module({ number, title, lessons, isExpanded = false }: ModuleProps) {
-  // Estado para abrir/cerrar el acordeón
   const [isOpen, setIsOpen] = useState(isExpanded);
-  // Estado oculto para "recordar" qué valor tenía isExpanded la última vez
   const [prevIsExpanded, setPrevIsExpanded] = useState(isExpanded);
-  // Estado para saber qué lección está seleccionada para el Modal
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
 
-  // Comparamos si la búsqueda cambió. Si cambió, actualizamos 'isOpen' directamente.
-  // Esto no da error y es mucho más rápido para el navegador.
   if (isExpanded !== prevIsExpanded) {
     setIsOpen(isExpanded);
     setPrevIsExpanded(isExpanded);
@@ -80,12 +76,12 @@ export default function Module({ number, title, lessons, isExpanded = false }: M
         )}
       </div>
 
-      {/* Renderizamos el Modal aquí. Solo se muestra si hay una lección seleccionada */}
       <VideoModal 
         isOpen={selectedLesson !== null} 
         onClose={() => setSelectedLesson(null)} 
         title={selectedLesson?.title || ""}
         youtubeId={selectedLesson?.youtubeId}
+        startTime={selectedLesson?.startTime} 
       />
     </>
   );
