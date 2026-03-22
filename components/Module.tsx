@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState} from 'react';
 import { ChevronDown, ChevronUp, PlayCircle } from 'lucide-react';
 import VideoModal from './VideoModal';
 
@@ -13,14 +13,23 @@ interface ModuleProps {
   number: string;
   title: string;
   lessons: Lesson[];
+  isExpanded?: boolean;
 }
 
-export default function Module({ number, title, lessons }: ModuleProps) {
+export default function Module({ number, title, lessons, isExpanded = false }: ModuleProps) {
   // Estado para abrir/cerrar el acordeón
-  const [isOpen, setIsOpen] = useState(false);
-  
+  const [isOpen, setIsOpen] = useState(isExpanded);
+  // Estado oculto para "recordar" qué valor tenía isExpanded la última vez
+  const [prevIsExpanded, setPrevIsExpanded] = useState(isExpanded);
   // Estado para saber qué lección está seleccionada para el Modal
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
+
+  // Comparamos si la búsqueda cambió. Si cambió, actualizamos 'isOpen' directamente.
+  // Esto no da error y es mucho más rápido para el navegador.
+  if (isExpanded !== prevIsExpanded) {
+    setIsOpen(isExpanded);
+    setPrevIsExpanded(isExpanded);
+  }
 
   return (
     <>
