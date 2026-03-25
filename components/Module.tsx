@@ -30,12 +30,14 @@ export default function Module({ number, title, lessons, isExpanded = false, onS
 
   return (
     <div className="w-full max-w-4xl mx-auto mb-4 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={`w-full flex items-center justify-between p-6 transition-colors cursor-pointer ${
-          isOpen ? 'bg-[#FCF8F2]' : 'bg-white hover:bg-gray-50'
-        }`}
-      >
+      <div
+          onClick={() => setIsOpen(!isOpen)}
+          className={`w-full flex items-center justify-between p-6 transition-colors cursor-pointer ${
+            isOpen ? 'bg-[#FCF8F2]' : 'bg-white hover:bg-gray-50'
+          }`}
+          role="button"
+          tabIndex={0}
+        >
         <div className="flex items-center gap-4">
           <span className="text-3xl font-black italic text-dios-gold opacity-60">
             {number}
@@ -49,7 +51,7 @@ export default function Module({ number, title, lessons, isExpanded = false, onS
         ) : (
           <ChevronDown className="text-dios-orange" />
         )}
-      </button>
+      </div>
 
       {isOpen && (
         <div className="p-6 bg-white border-t border-gray-50">
