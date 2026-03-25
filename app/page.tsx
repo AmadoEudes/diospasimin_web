@@ -2,11 +2,13 @@
 
 import { useState } from 'react';
 import SearchBar from "../components/SearchBar";
-import Module from "../components/Module";
+import Module, { Lesson } from "../components/Module";
+import VideoModal from "../components/VideoModal";
 
 export default function Home() {
   // Gardamos lo que el usuario escribe
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
 
   const modulo_a1 = [{ title: "Jornada 1: La Biblia es palabra de Dios y la Trinidad", youtubeId: "RtzqdZMBxVE", startTime: 60}, { title: "Jornada 2: La deidad de Jesús y la misión de Jesús" }, { title: "Jornada 3: Salvación por la gracia mediante la fe, el Cielo y el Infierno" }, { title: "Jornada 4: La persona y obra del Espíritu Santo" }, { title: "Jornada 5: La sanidad divina" }, { title: "Jornada 6: Las ordenanzas de la Iglesia" }];
   const modulo_a2 = [{ title: "Jornada 1: El Espíritu Santo" }, { title: "Jornada 2: Los dones del Espíritu Santo" }, { title: "Jornada 3: Los dones vocales del Espíritu Santo" }, { title: "Jornada 4: Los dones de revelación" }, { title: "Jornada 5: Los dones de poder del Espíritu Santo" }, { title: "Jornada 6: Los dones de sanidad" }, { title: "Jornada 7: La gran comisión y la sanidad" }, { title: "Jornada 8: El poder de Dios para dar sanidad" }, { title: "Jornada 9: Hablar palabras de sanidad" }, { title: "Jornada 10: Impartición por la imposición de manos" }];
@@ -135,10 +137,18 @@ export default function Home() {
             title={mod.title} 
             lessons={mod.lessons} 
             isExpanded={searchTerm.length > 0} // Si hay texto en el buscador, se abre solo
+            onSelectLesson={(lesson) => setSelectedLesson(lesson)}
           />
         ))}
       </div>
 
+      <VideoModal 
+        isOpen={selectedLesson !== null} 
+        onClose={() => setSelectedLesson(null)} 
+        title={selectedLesson?.title || ""}
+        youtubeId={selectedLesson?.youtubeId}
+        startTime={selectedLesson?.startTime} 
+      />
     </div>
   );
 }

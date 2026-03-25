@@ -13,9 +13,11 @@ interface VideoModalProps {
 
 export default function VideoModal({ isOpen, onClose, title, youtubeId, startTime }: VideoModalProps) {
   const [showVideo, setShowVideo] = useState(false);
+  
+  // Recuperamos la memoria del estado anterior para evitar el error de ESLint
   const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
 
-  // Reiniciamos el estado del video al abrir/cerrar el modal
+  // Ajuste de estado seguro: Si se acaba de abrir, reiniciamos a la portada
   if (isOpen !== prevIsOpen) {
     setPrevIsOpen(isOpen);
     if (isOpen) {
@@ -23,6 +25,7 @@ export default function VideoModal({ isOpen, onClose, title, youtubeId, startTim
     }
   }
 
+  // El useEffect vuelve a quedar solo para el DOM (el scroll)
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -39,7 +42,9 @@ export default function VideoModal({ isOpen, onClose, title, youtubeId, startTim
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-      <div className="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity" />
+
+      <div className="fixed inset-0 bg-black/90 transition-opacity"  />
+      
       <div className="relative w-full max-w-4xl flex flex-col items-center z-10">
         <div className="relative w-full bg-[#FCFBF7] rounded-3xl shadow-2xl overflow-hidden flex flex-col">
           
@@ -72,7 +77,6 @@ export default function VideoModal({ isOpen, onClose, title, youtubeId, startTim
             ) : (
               <iframe
                 className="absolute top-0 left-0 w-full h-full border-none"
-                // 3. Lógica limpia: solo ponemos start si startTime existe y es mayor a 0
                 src={`https://www.youtube.com/embed/${activeId}?autoplay=1&rel=0${startTime ? `&start=${startTime}` : ''}`}
                 title="Reproductor de enseñanzas"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
