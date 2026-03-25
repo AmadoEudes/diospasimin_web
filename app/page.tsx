@@ -6,7 +6,7 @@ import Module, { Lesson } from "../components/Module";
 import VideoModal from "../components/VideoModal";
 
 export default function Home() {
-  // Gardamos lo que el usuario escribe
+  
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
 
@@ -94,7 +94,7 @@ export default function Home() {
     // Normalizamos la búsqueda del usuario y la separamos en palabras
     const searchWords = normalizeText(searchTerm).split(' ').filter(word => word.trim() !== '');
 
-    // Mini-detector que normaliza el texto antes de comparar
+    // Normaliza el texto antes de comparar
     const matchesAllWords = (text: string) => {
       const normalizedText = normalizeText(text);
       return searchWords.every(word => normalizedText.includes(word));
