@@ -10,38 +10,254 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
 
-  const modulo_a1 = [{ title: "Jornada 1: La Biblia es palabra de Dios y la Trinidad", youtubeId: "RtzqdZMBxVE", startTime: 60}, { title: "Jornada 2: La deidad de Jesús y la misión de Jesús" }, { title: "Jornada 3: Salvación por la gracia mediante la fe, el Cielo y el Infierno" }, { title: "Jornada 4: La persona y obra del Espíritu Santo" }, { title: "Jornada 5: La sanidad divina" }, { title: "Jornada 6: Las ordenanzas de la Iglesia" }];
-  const modulo_a2 = [{ title: "Jornada 1: El Espíritu Santo" }, { title: "Jornada 2: Los dones del Espíritu Santo" }, { title: "Jornada 3: Los dones vocales del Espíritu Santo" }, { title: "Jornada 4: Los dones de revelación" }, { title: "Jornada 5: Los dones de poder del Espíritu Santo" }, { title: "Jornada 6: Los dones de sanidad" }, { title: "Jornada 7: La gran comisión y la sanidad" }, { title: "Jornada 8: El poder de Dios para dar sanidad" }, { title: "Jornada 9: Hablar palabras de sanidad" }, { title: "Jornada 10: Impartición por la imposición de manos" }];
-  const modulo_a3 = [{ title: "Jornada 1: Introducción al Nuevo Testamento" }, { title: "Jornada 2: Mateo, Marcos, Lucas tres retratos de Jesucristo" }, { title: "Jornada 3: Juan: El cuato retrato de Jesucristo" }, { title: "Jornada 4: Hechos: La expansión del Evangelio" }, { title: "Jornada 5: Romanos: Carta de Pablo acerca del Evangelio de la gracia" }, { title: "Jornada 6: Primera y Segunda de Corintios, Gálatas: Cartas de Pablo de la vida del Evangelio de la gracia" }, { title: "Jornada 7: Ef., Filipenses, Colosenses y Filemón: Cartas de Pablo desde la prisión" }, { title: "Jornada 8: Primera y Segunda de Timoteo y Tito: Las cartas de Pablo a los líderes" }, { title: "Jornada 9: De Hebreos a Judas: Las cartas generales de los creyentes" }, { title: "Jornada 10: El Apocalipsis: La consumación de todas las cosas" }];
-  const modulo_a4 = [{ title: "Jornada 1: La prioridad, el propósito, y representación de la adoración" }, { title: "Jornada 2: El papel de la música en el reino de Dios" }, { title: "Jornada 3: La importancia del cántico nuevo" }, { title: "Jornada 4: Nuestra responsabilidad como adoradores" }, { title: "Jornada 5: Cómo hacerse adorador" }];
-  const modulo_b1 = [{ title: "Jornada 1: Su triple potencial" }, { title: "Jornada 2: ¿Qué es la oración?" }, { title: "Jornada 3: La práctica de la oración, 1ra parte" }, { title: "Jornada 4: La práctica de la oración, 2da parte" }, { title: "Jornada 5: El propósito de la oración" }];
-  const modulo_b2 = [{ title: "Jornada 1: El viaje de un siervo" }, { title: "Jornada 2: Dios usa estrellas y velas" }, { title: "Jornada 3: No temáis al liderazgo, a la organización o la estructura, 1ra parte" }, { title: "Jornada 4: No temáis al liderazgo, a la organización o la estructura, 2da parte" }, { title: "Jornada 5: Llegando a ser un siervo de fuego" }];
-  const modulo_b3 = [{ title: "Jornada 1: Abordando el Antiguo Testamento" }, { title: "Jornada 2: El orden de los libros y la creación" }, { title: "Jornada 3: La imagen de Dios y la caída" }, { title: "Jornada 4: Babel y Abraham, conceptos de pacto" }, { title: "Jornada 5: Abraham, Israel, José, Moisés" }, { title: "Jornada 6: La adoración en el Tabernáculo" }, { title: "Jornada 7: Josué y Jueces" }, { title: "Jornada 8: Los Reyes, David, Salmos y la poesía hebrea" }, { title: "Jornada 9: La literatura sapiencial, la división y el exilio" }, { title: "Jornada 10: La cautividad en Babilonia, el regreso del exilio y los profetas" }];
-  const modulo_b4 = [{ title: "Jornada 1: El cambio (Intercambio) divino, 1ra parte" }, { title: "Jornada 2: El cambio (Intercambio) divino, 2da parte" }, { title: "Jornada 3: El triunfo de alabanza" }, { title: "Jornada 4: ¿Qué hace obrar a los ángeles?" }, { title: "Jornada 5: Cómo hacer que su fe obre" }];
-  const modulo_b5 = [{ title: "Jornada 1: La voluntad de Dios y la sanidad" }, { title: "Jornada 2: Sanidad en la expiación" }, { title: "Jornada 3: Salvación plena" }, { title: "Jornada 4: Moisés, la serpiente y la sanidad" }, { title: "Jornada 5: La misericordia de sanar" }];
-  const modulo_c1 = [{ title: "Jornada 1: Introducción al Curso Internacional" }];
-  const modulo_c2 = [{ title: "Jornada 1: El modelo para el entrenamiento ministerial" }, { title: "Jornada 2: La meta y el objetivo del ministerio de enseñanza" }, { title: "Jornada 3: Planifique su instituto" }];
-  const modulo_c3 = [{ title: "Jornada 1: Propósitos de los grupos celulares" }, { title: "Jornada 2: Evangelizando a los perdidos a través de los grupos celulares" }, { title: "Jornada 3: Desarrollando líderes" }, { title: "Jornada 4: Los principios de la multiplicación" }, { title: "Jornada 5: Líderes grandes en la iglesia" }];
-  const modulo_c4 = [{ title: "Jornada 1: La gran comisión" }, { title: "Jornada 2: Cómo puede usted ponerse a disposición del Espíritu Santo" }, { title: "Jornada 3: La integridad necesaria para llevar la unción del Espiritu Santo" }, { title: "Jornada 4: La magnitud de la gran comisión" }, { title: "Jornada 5: El fuego del Espíritu Santo" }];
-  const modulo_c5 = [{ title: "Jornada 1: La integridad del corazón" }, { title: "Jornada 2: Un espíritu qué perdona" }];
-  const modulo_c6 = [{ title: "Jornada 1: Abracemos la visión" }, { title: "Jornada 2: Las cualidades de la visión" }, { title: "Jornada 3: Enfocando la visión" }, { title: "Jornada 4: La visión de Dios para las naciones" }, { title: "Jornada 5: El financiamiento de la visión" }];
-  const modulo_c7 = [{ title: "Jornada 1: Una descripción del planteamiento de Iglesias" }, { title: "Jornada 2: La Iglesia local como centro de entrenamiento de ministerios" }, { title: "Jornada 3: Ministros vocacionales en la Iglesia local" }, { title: "Jornada 4: Identificando equipos para plantar Iglesias" }, { title: "Jornada 5: Preparando y enviando a los equipos que planten Iglesias" }];
-  const modulo_c8 = [{ title: "Jornada 1: Las diversas maneras que Dios guía a su pueblo" }, { title: "Jornada 2: Cómo nos guía Dios mediante nuestro espíritu" }, { title: "Jornada 3: Cómo recibir dirección en tiempos difíciles" }, { title: "Jornada 4: Las prioridades de la vida" }, { title: "Jornada 5: Trampas y peligros al buscar la guianza de Dios" }];
-  const modulo_d1 = [{ title: "Jornada 1: Mentalidades; visión y responsabilidad" }, { title: "Jornada 2: Responsabilidad y pruebas" }, { title: "Jornada 3: Quejándose e impaciencia" }, { title: "Jornada 4: Impaciencia y la mentalidad de víctima" }, { title: "Jornada 5: La mentalidad de victima y lástima propia" }, { title: "Jornada 6: La autoestima" }, { title: "Jornada 7: Los celos, la testarudez y la rebeldía" }];
-  const modulo_d2 = [{ title: "Jornada 1: El corazón de un líder" }, { title: "Jornada 2: Su corazón determina el curso de la vida" }, { title: "Jornada 3: Su corazón determina su éxito en la vida" }, { title: "Jornada 4: ¿Líderes o seguidores?" }, { title: "Jornada 5: Trampas a los visionarios" }];
-  const modulo_d3 = [{ title: "Jornada 1: Eficacia" }];
-  const modulo_d4 = [{ title: "Jornada 1: Introducción" }, { title: "Jornada 2: Orígenes y destinos" }, { title: "Jornada 3: Las estrategias del enemigo" }, { title: "Jornada 4: Viviendo una vida en reconciliación" }];
-  const modulo_d5 = [{ title: "Jornada 1: El secreto mejor guardado del infierno" }, { title: "Jornada 2: El ateísmo" }, { title: "Jornada 3: Evangelismo militante" }, { title: "Jornada 4: La conversión verdadera y falsa" }, { title: "Jornada 5: Cómo conseguir el ardor hacia Dios" }];
-  const modulo_d6 = [{ title: "Jornada 1: El fundamento bíblico de la guerra" }, { title: "Jornada 2: La comprensión de la guerra espiritual" }, { title: "Jornada 3: Oración de guerra y las puertas del Infierno" }, { title: "Jornada 4: Derribar las puertas del Infierno" }, { title: "Jornada 5: Usar la autoridad en la sociedad" }];
-  const modulo_d7 = [{ title: "Jornada 1: La carnada de Satanás" }, { title: "Jornada 2: Cubierto" }];
-  const modulo_d8 = [{ title: "Jornada 1: Memorización bíblica (PARTE 1)" }, { title: "Jornada 2: Memorización bíblica (PARTE 2)" }, { title: "Jornada 3: Quebrantando las maldiciones generacionales" }];
-  const modulo_e1 = [{ title: "Jornada 1: Jesús, nuestro modelo" }, { title: "Jornada 2: Jesús, nuestra inspiración" }, { title: "Jornada 3: Nuestra respuesta" }, { title: "Jornada 4: Escogidos para servicio" }, { title: "Jornada 5: Nuestra credibilidad" }, { title: "Jornada 6: Nuestra legalidad" }, { title: "Jornada 7: La experiencia" }];
-  const modulo_e2 = [{ title: "Jornada 1: La forma de vida máxima" }, { title: "Jornada 2: Cómo empezar una forma de vida de dar" }, { title: "Jornada 3: Los beneficios de vivir dando a Dios" }, { title: "Jornada 4: Vivir y dar más de lo posible" }, { title: "Jornada 5: ¿Puede Dios? Dios puede" }];
-  const modulo_e3 = [{ title: "Jornada 1: ¿Qué es un anciano en el sentido bíblico?" }, { title: "Jornada 2: La función de los Ancianos" }, { title: "Jornada 3: El carácter de los Ancianos" }, { title: "Jornada 4: El ministerio de cinco pasos. PARTE 1" }, { title: "Jornada 5: El ministerio de cinco pasos. PARTE 2" }];
-  const modulo_e4 = [{ title: "Jornada 1: Qué dice la Biblia acerca del ministerio de niños" }, { title: "Jornada 2: Las leyes de hospitalidad" }, { title: "Jornada 3: La cosecha de los últimos días" }, { title: "Jornada 4: Predicándoles a los niños" }, { title: "Jornada 5: Ministerio de jóvenes dirigido por un Pastor" }, { title: "Jornada 6: Cómo mantener la atención de un niño" }, { title: "Jornada 7: Cómo ser un excelente narrador" }];
-  const modulo_e5 = [{ title: "Jornada 1: Usando títeres en el ministerio de niños" }, { title: "Jornada 2: Cómo ser una persona que resuelve problemas" }, { title: "Jornada 3: Organizando el ministerio de niños para el crecimiento" }, { title: "Jornada 4: Cómo obtener la ayuda de otros" }];
-  const modulo_e6 = [{ title: "Jornada 1: Establecer una visión para el ministerio de jóvenes" }, { title: "Jornada 2: Guiando a líderes a ejecución máxima" }, { title: "Jornada 3: Comunicándose efectivamente con la juventud" }, { title: "Jornada 4: Planeando efectivamente un ministerio de jóvenes" }];
+    const modulo_a1 = [
+      { title: "1. Bibliaqa Diospa Simin kasqanmanta hinaspa Trinidadmanta / La Biblia es palabra de Dios y la Trinidad", youtubeId: "RtzqdZMBxVE", startTime: 60 },
+      { title: "2. Jesuspa Dios kasqanmanta hinaspa rurayninkunamanta / La deidad de Jesús y la misión de Jesús" },
+      { title: "3. Salvacionmanta, hanaq pachamanta, infiernomanta hinaspa Jesuspa kutimunanmanta / Salvación por la gracia mediante la fe, el Cielo y el Infierno" },
+      { title: "4. Chuya Espiritupa Dios kasqanmantawan rurayninkunamanta / La persona y obra del Espíritu Santo" },
+      { title: "5. Diospa hanpikuyninmanta / La sanidad divina" },
+      { title: "6. Iglesia rurananpaq kamachikuykunamanta / Las ordenanzas de la Iglesia" }
+    ];
 
+    const modulo_a2 = [
+      { title: "7. Chuya Espíritumanta / El Espíritu Santo" },
+      { title: "8. Chuya Espiritupa Donninkunamanta / Los dones del Espíritu Santo" },
+      { title: "9. Simiwan rimanapaq kaq donkunamanta / Los dones vocales del Espíritu Santo" },
+      { title: "10. Revelacionkuna chaskinapaq donkunamanta / Los dones de revelación" },
+      { title: "11. Atiyninwan rimanapaq kaq donkunamanta / Los dones de poder del Espíritu Santo" },
+      { title: "12. Unquqkunata sanoyachinapaq kaq donkunamanta / Los dones de sanidad" },
+      { title: "13. Hatun kamachikuymantawan hunquqkuna sanoyachinamanta / La gran comisión y la sanidad" },
+      { title: "14. Diospa Atiyninwan unquqkunata sanoyachinamanta / El poder de Dios para dar sanidad" },
+      { title: "15. Atiywan rimaspa unquqkunata sanoyachinamanta / Hablar palabras de sanidad" },
+      { title: "16. Makita churanamanta / Impartición por la imposición de manos" }
+    ];
+
+    const modulo_a3 = [
+      { title: "17. Musuq Testamentomanta / Introducción al Nuevo Testamento" },
+      { title: "18. Mateo, Marcos, Lucas: Jesusmanta imam willakusqankumanta / Mateo, Marcos, Lucas: tres retratos de Jesucristo" },
+      { title: "19. Juan: Jesucristomanta imam willakusqanmanta / Juan: El cuarto retrato de Jesucristo" },
+      { title: "20. Hechos: Evangelio willakusqankupa wiñarisqanmanta / Hechos: La expansión del Evangelio" },
+      { title: "21. Romanos: Evangelioqa Diospa kuyakuynin kasqanmanta / Romanos: Carta de Pablo acerca del Evangelio de la gracia" },
+      { title: "22. 1, 2 Corintios; Gálatas: Evangelioman hina kawsanamanta / Primera y Segunda de Corintios, Gálatas: Cartas de Pablo de la vida del Evangelio de la gracia" },
+      { title: "23. Efesios, Filipenses, Colosenses hinaspa Filemón: Pablo carcelpi kachkaspan iglesiakunaman cartakuna apachisqanmanta / Ef., Filipenses, Colosenses y Filemón: Cartas de Pablo desde la prisión" },
+      { title: "24. 1, 2 Tesalonisenses; 1, 2 Timoteo; Tito: Pastorkunaman Pablopa Cartankuna apachisqanmanta / Primera y Segunda de Timoteo y Tito: Las cartas de Pablo a los líderes" },
+      { title: "25. Hebreos; Santiago; 1, 2 Pedro; 1, 2, 3 Juan, Judas: Iñiqkunaman qillqasqa cartakunamanta / De Hebreos a Judas: Las cartas generales de los creyentes" },
+      { title: "26. Apocalipsis: Tukuy imapa tukupayninmanta / El Apocalipsis: La consumación de todas las cosas" }
+    ];
+
+    const modulo_a4 = [
+      { title: "27. Imanasqa hinaspa imaynatam Diosta yupaychanamanta / La prioridad, el propósito, y representación de la adoración" },
+      { title: "28. Diospa reinonpi música imapaqmi kasqanmanta / El papel de la música en el reino de Dios" },
+      { title: "29. Musuq takikunamanta / La importancia del cántico nuevo" },
+      { title: "30. Yupaychaqkunapa rurayninkunamanta / Nuestra responsabilidad como adoradores" },
+      { title: "31. Diosta yupaychaqkuna kananchikmanta / Cómo hacerse adorador" }
+    ];
+
+    const modulo_b1 = [
+      { title: "32. Imapaqmi mañakuy kasqanmanta / Su triple potencial" },
+      { title: "33. ¿Imataq mañakuy utaq oración? / ¿Qué es la oración?" },
+      { title: "34. Imaynatam mañakunanchikmanta Punta kaq yachachikuy / La práctica de la oración, 1ra parte" },
+      { title: "35. Imayntam mañakunanchikmanta Iskay kaq yachachikuy / La práctica de la oración, 2da parte" },
+      { title: "36. Imapaqmi mañakunanchikmanta / El propósito de la oración" }
+    ];
+
+    const modulo_b2 = [
+      { title: "37. Iglesiapi yanapakunanchikmanta / El viaje de un siervo" },
+      { title: "38. Diosqa churinkunata sirvikunankupaq qayasqanmanta / Dios usa estrellas y velas" },
+      { title: "39. Iglesia allin organizasqa kaptinqa aswan allin yanapakuyqa kasqanmanta Punta kaq yachachikuy / No temáis al liderazgo, a la organización o a la estructura, 1ra parte" },
+      { title: "40. Iglesia allin organizasqa kaptinqa aswan allin yanapakuyqa kasqanmanta Iskay kaq yachachikuy / No temáis al liderazgo, a la organización o a la estructura, 2da parte" },
+      { title: "41. Yanapakuqkunapa iglesiapi llamkayninmanta / Llegando a ser un siervo de fuego" }
+    ];
+
+    const modulo_b3 = [
+      { title: "42. Ñawpaq Testamentomanta / Abordando el Antiguo Testamento" },
+      { title: "43. Bibliapi librokuna imayna patachasqam kasqanmanta hinaspa Dios tukuy imata unanchasqanmanta / El orden de los libros y la creación" },
+      { title: "44. Runaqa Diosman richakuq kasqanmantawan huchaman wichisqanmanta / La imagen de Dios y la caída" },
+      { title: "45. Abrahanmanta, Babelmanta hinaspa Dios runawan contrato rurasqanmanta / Babel y Abraham, conceptos de pacto" },
+      { title: "46. Abrahanmanta, Israelmanta, Josemanta hinaspa Moisesmanta / Abraham, Israel, José, Moisés" },
+      { title: "47. Diosta karpanpi yupaychasqankumanta / La adoración en el Tabernáculo" },
+      { title: "48. Josuemantawan Juezkunamanta / Josué y Jueces" },
+      { title: "49. Reykuna hatarisqanmanta, Davidmanta hinaspa Salmos libropi Hebreo takikunamanta / Los Reyes, David, Salmos y la poesía hebrea" },
+      { title: "50. Yachaykunamanta, israel nación rakinakusqanmanta hinaspa huklaw nacionkunaman apasqa kasqankumanta / La literatura sapiencial, la división y el exilio" },
+      { title: "51. Babiloniaman apasqa kasqankumanta, chaymanta Dios kutichimusqanmanta hinaspa profetakunamanta / La cautividad en Babilonia, el regreso del exilio y los profetas" }
+    ];
+
+    const modulo_b4 = [
+      { title: "52. Rantinchikpi Dios imatam rurasqanmanta 1 / El cambio (Intercambio) divino, 1ra parte" },
+      { title: "53. Rantinchikpi Dios imatam rurasqanmanta II / El cambio (Intercambio) divino, 2da parte" },
+      { title: "54. Cristopi vencesqanchikmanta / El triunfo de alabanza" },
+      { title: "55. ¿Imataq angelkunata llamkachin? / ¿Qué hace obrar a los ángeles?" },
+      { title: "56. Imaynatam iñiyninchikta llamkachinamanta / Cómo hacer que su fe obre" }
+    ];
+
+    const modulo_b5 = [
+      { title: "57. Diosqa unquqkunata sanoyachiy munasqanmanta / La voluntad de Dios y la sanidad" },
+      { title: "58. Jesús salvawaspanchik hampiwasqanchikmanta / Sanidad en la expiación" },
+      { title: "59. Diosqa kuyakuywan salvawasqanchikmanta / Salvación plena" },
+      { title: "60. Moisés broncemanta culebrata sayachisqanmanta / Moisés, la serpiente y la sanidad" },
+      { title: "61. Diosqa llakipayakuywan salvawaspanchik hampiykuwasqanchikmanta / La misericordia de sanar" }
+    ];
+
+    const modulo_c1 = [
+      { title: "62. Kay yachachikuykuna imapaqmi kasqanmanta / Introducción al Curso Internacional" }
+    ];
+
+    const modulo_c2 = [
+      { title: "63. Imaynatam iglesiapi Escuela Biblicata hatarichinamanta / El modelo para el entrenamiento ministerial" },
+      { title: "64. ¿Imapaq hinaspa imanasqataq escuela biblicata hatarichisun? / La meta y el objetivo del ministerio de enseñanza" },
+      { title: "65. Sumaqta Tanteaykuspa Escuela Biblicata hatarichinamanta / Planifique su instituto" }
+    ];
+
+    const modulo_c3 = [
+      { title: "66. ¿Imapaqtaq iglesiapi necesitanchik taksa grupokuna hatarichiyta? / Propósitos de los grupos celulares" },
+      { title: "67. Taksa grupokunawan chinkasqa runakunata haypanamanta / Evangelizando a los perdidos a través de los grupos celulares" },
+      { title: "68. Lederkunata iglesiapi hatarichinamanta / Desarrollando líderes" },
+      { title: "69. Imaynatam taksa grupokunawan iglesiata mirachinamanta / Los principios de la multiplicación" },
+      { title: "70. Imayna runakunatam iglesiapi lider kanankupaq akllanamanta / Líderes grandes en la Iglesia" }
+    ];
+
+    const modulo_c4 = [
+      { title: "71. Jesuspa hatun kamachikuy qusqanmanta / La gran comisión" },
+      { title: "72. Chuya Espiritupa atiyninwan evangeliota willakunanchikmanta / Cómo puede usted ponerse a disposición del Espíritu Santo" },
+      { title: "73. Diospa siminta apaqkunaqa allin kawsakuq kanankumanta / La integridad necesaria para llevar la unción del Espíritu Santo" },
+      { title: "74. Hatun kamachikuyta rurananchikmanta / La magnitud de la gran comisión" },
+      { title: "75. Chuya Espiritupa atiyninmanta / El fuego del Espíritu Santo" }
+    ];
+
+    const modulo_c5 = [
+      { title: "76. Limpio sunquwan Diosta sirvikunanchikmanta / La integridad del corazón" },
+      { title: "77. Pampachakuq Sunquyuq kananchikmanta / Un espíritu que perdona" }
+    ];
+
+    const modulo_c6 = [
+      { title: "78. Ñuqanchikpaq Diospa imam munasqanta chaskispa rurananchikmanta / Abracemos la visión" },
+      { title: "79. Imayna sunquyuqmi Diospa kamachikuynin chaskiq runa kananmanta / Las cualidades de la visión" },
+      { title: "80. ¿Imataq visión, imaynatataq rurayta atisun? / Enfocando la visión" },
+      { title: "81. Kay pachapaq imatam Dios munasqanmanta / La visión de Dios para las naciones" },
+      { title: "82. ¿Maypitaq qullqita tarisun Diospa imam munasqanta rurananchikpaq? / El financiamiento de la visión" }
+    ];
+
+    const modulo_c7 = [
+      { title: "83. Imaynatam musuq iglesiata hatarichinamanta / Una descripción del plantamiento de Iglesias" },
+      { title: "84. Iglesia liderkunata ministeriokunata hatarichiq kanankumanta / La Iglesia local como centro de entrenamiento de ministerios" },
+      { title: "85. Musuq iñiqkunata don chaskisqankuman hina llamkachinamanta / Ministros vocacionales en la Iglesia local" },
+      { title: "86. Musuq Iglesiata hatarichinapaq grupokunata formanamanta / Identificando equipos para plantar Iglesias" },
+      { title: "87. Iglesia hatarichimunanpaq grupo formasqanchikta kachanamanta / Preparando y enviando a los equipos que planten Iglesias" }
+    ];
+
+    const modulo_c8 = [
+      { title: "88. Iñiqkunata Dios imaynatam guiasqanmanta / Las diversas maneras que Dios guía a su pueblo" },
+      { title: "89. Espiritunchiktakama Dios guiawasqanchikmanta / Cómo nos guía Dios mediante nuestro espíritu" },
+      { title: "90. Sasachakuy tiempokunapi Diospa yanapakuyninta chaskinamanta / Cómo recibir dirección en tiempos difíciles" },
+      { title: "91. Rurayninchikmanta akllasqa kaqkunata ñawpaqman churanamanta / Las prioridades de la vida" },
+      { title: "92. Diosta maskaspa ima pantachikuykunatam tarinanchikmanta / Trampas y peligros al buscar la guianza de Dios" }
+    ];
+
+    const modulo_d1 = [
+      { title: "93. Israel kasta runakuna desiertopi ñakarisqanmanta / Mentalidades; visión y responsabilidad" },
+      { title: "94. Pruebasqa kaspa imatam rurananchikmanta / Responsabilidad y pruebas" },
+      { title: "95. Tukuy imamanta quejakuspa imamantapas hukman tumpaymanta / Quejándose e impaciencia" },
+      { title: "96. Pacienciakuyqa mana yachaspa yanqa ñakariymanta / Impaciencia y la mentalidad de víctima" },
+      { title: "97. Kikinchikta llakipayakuspa mana huchayuqpaq hapikuymanta / La mentalidad de víctima y lástima propia" },
+      { title: "98. Diospa churinña kasqanchik rayku kuyapayakunanchikmanta / La autoestima" },
+      { title: "99. Hukpa kaqta envidiakuspa runapa kaqta munapayaspa runaman tupachikuymanta / Los celos, la testarudez y la rebeldía" }
+    ];
+
+    const modulo_d2 = [
+      { title: "100. Imayna sunquyuqtaq huk lider kanan / El corazón de un líder" },
+      { title: "101. Runaqa sunqunpa munasqanman hinam kawsanqa / Su corazón determina el curso de la vida" },
+      { title: "102. Ruraqa kawsanqa utaq ruwanqapas sunqunpa kamachisqanman hinam / Su corazón determina su éxito en la vida" },
+      { title: "103. Pitaq kanki ¿Liderchu icha qatikuqllachu? / ¿Líderes o seguidores?" },
+      { title: "104. Imapitaq liderkuna pantan / Trampas a los visionarios" }
+    ];
+
+    const modulo_d3 = [
+      { title: "105. Huk lider allin llamkaq kananmanta / Eficacia" }
+    ];
+
+    const modulo_d4 = [
+      { title: "106. Kuyanakunamanta / Introducción" },
+      { title: "107. Runapa paqariyninmanta hinaspa maymanmi rinanmanta / Orígenes y destinos" },
+      { title: "108. Imatataq supay ruwachkan runakunata rakinananpaq / Las estrategias del enemigo" },
+      { title: "109. Huklla kawsakuy atinamanta / Viviendo una vida en reconciliación" }
+    ];
+
+    const modulo_d5 = [
+      { title: "110. Imatam infierno sumaqta pakasqanmanta / El secreto mejor guardado del infierno" },
+      { title: "111. Diospi mana iñiq runakunamanta utaq ateokunamanta / El ateísmo" },
+      { title: "112. Evangeliota chiqap willakuqkunamanta / Evangelismo militante" },
+      { title: "113. Chiqap iñikuywan hawa sunqulla iñikuymanta / La conversión verdadera y falsa" },
+      { title: "114. Imaynatataq Diospaq tukuy sunquwan llamkayta atichwan / Cómo conseguir el ardor hacia Dios" }
+    ];
+
+    const modulo_d6 = [
+      { title: "115. Bibliam nin supaywan guerrapi kasqanchikta / El fundamento bíblico de la guerra" },
+      { title: "116. Yachananchikmi mana allin espiritukunawan peleayta / La comprensión de la guerra espiritual" },
+      { title: "117. Guerrata peleanapaq Diosta atyninmanta hinaspa infiernopa punkunmanta / Oración de guerra y las puertas del Infierno" },
+      { title: "118. Infiernopa punkun tuñichinamanta / Derribar las puertas del Infierno" },
+      { title: "119. Diospa atiyninwanmi peleananchikqa / Usar la autoridad en la sociedad" }
+    ];
+
+    const modulo_d7 = [
+      { title: "120. Wichichiwananchikpaq supaypa trampa churamusqanmanta / La carnada de Satanás" },
+      { title: "121. Diospa atiyninwan pachallikunanchikmanta / Cubierto" }
+    ];
+
+    const modulo_d8 = [
+      { title: "122. Diospa Siminta Yachaspa sunqupi sapinchanamanta / Memorización bíblica (PARTE 1)" },
+      { title: "123. Diospa Siminta Yachaspa sunqupi sapinchanamanta / Memorización bíblica (PARTE 2)" },
+      { title: "124. Ñakasqa kaykunata pakinanchikmanta utaq vencenanchikmanta / Quebrantando las maldiciones generacionales" }
+    ];
+
+    const modulo_e1 = [
+      { title: "125. Jesúsmi yachachiqninchikqa / Jesús, nuestro modelo" },
+      { title: "126. Jesúsmi ruranapaq kallpanchaqninchik / Jesús, nuestra inspiración" },
+      { title: "127. Imanisuntaq kasukusunchu manachu / Nuestra respuesta" },
+      { title: "128. Ruranapaq kachasqam kanchik / Escogidos para servicio" },
+      { title: "129. Imataq willakuyninchikta valechin / Nuestra credibilidad" },
+      { title: "130. Pitaq kanchik Diospi / Nuestra legalidad" },
+      { title: "131. Dios qanwan kaptinga maynatataq rurawaq / La experiencia" }
+    ];
+
+    const modulo_e2 = [
+      { title: "132. Diospa munasqanman hina kawsanamanta / La forma de vida máxima" },
+      { title: "133. Quyta qallarinamanta / Cómo empezar una forma de vida de dar" },
+      { title: "134. Quy imapaqmi siqvikusqamanta / Los beneficios de vivir dando a Dios" },
+      { title: "135. Manaña atinanchikama qunamanta / Vivir y dar más de lo posible" },
+      { title: "136. ¿Atinmanchu Dios? Atinqa punim / ¿Puede Dios? Dios puede" }
+    ];
+
+    const modulo_e3 = [
+      { title: "137. Bibliaman hina ¿Pitaq huk anciano? / ¿Qué es un anciano en el sentido bíblico?" },
+      { title: "138. Ancianokunapa rurayninmanta / La función de los Ancianos" },
+      { title: "139. Ancianokunapa kawsayninmanta / El carácter de los Ancianos" },
+      { title: "140. Iglesiapi ministeriokunamanta 1 / El ministerio de cinco pasos. PARTE 1" },
+      { title: "141. Iglesiapi ministeriokunamanta 2 / El ministerio de cinco pasos. PARTE 2" }
+    ];
+
+    const modulo_e4 = [
+      { title: "142. Imanintaq Biblia warmakunawan llamkanamanta / Qué dice la Biblia acerca del ministerio de niños" },
+      { title: "143. Samaykachikuq kanamanta / Las leyes de hospitalidad" },
+      { title: "144. Tukupay tiempokunapi cosechumanta / La cosecha de los últimos días" },
+      { title: "145. Jesusmanta warmakunaman yachachinamanta / Predicándoles a los niños" },
+      { title: "146. Pastor jovenkunawan llamkananmanta / Ministerio de jóvenes dirigido por un Pastor" },
+      { title: "147. Warmakuna uyarinanpaq hina yachachinamanta / Cómo mantener la atención de un niño" },
+      { title: "148. Sumaq yachachikuq kanamanta / Cómo ser un excelente narrador" }
+    ];
+
+    const modulo_e5 = [
+      { title: "149. Titerekunawan wawakunaman yachachinamanta / Usando títeres en el ministerio de niños" },
+      { title: "150. Imaynatataq sasachakuykunata allichachwan / Cómo ser una persona que resuelve problemas" },
+      { title: "151. Iglesia mirachinapaq warmakunawan llamkay qallarinamanta / Organizando el ministerio de niños para el crecimiento" },
+      { title: "152. Imaynatam hukpa yanapakuyninta tarichwan / Cómo obtener la ayuda de otros" }
+    ];
+
+    const modulo_e6 = [
+      { title: "153. Jovenkunawan imaynam llamkanamanta / Establecer una visión para el ministerio de jóvenes" },
+      { title: "154. Liderkunata llamkachinamanta / Guiando a líderes a ejecución máxima" },
+      { title: "155. Jovenkunapa sunqunman chayanamanta / Comunicándose efectivamente con la juventud" },
+      { title: "156. Jovenkunawan llamkanapaq tanteanaman / Planeando efectivamente un ministerio de jóvenes" }
+    ];
   // METEMOS TODOS LOS MÓDULOS EN UNA LISTA MAESTRA
   const allModulesData = [
     { number: "01", title: "LOS FUNDAMENTOS DE LA FE", lessons: modulo_a1 },
